@@ -44,9 +44,9 @@ When setting up our servers, the automation script went through the process of i
 In order to send these files, we need to create a connection locally to that remote repository. We can do this through the Git commands: 
 
 ```shell
-git remote add PhpStaging ssh://root@[staging ip]:/var/repos/static.git
+git remote add StaticStaging ssh://root@[staging ip]:/var/repos/static.git
 
-git remote add PhpProduction ssh://root@[production ip]:/var/repos/static.git
+git remote add StaticProduction ssh://root@[production ip]:/var/repos/static.git
 ```
 
 >Note that the file path at the end must remain the same as I have listed it as that is the naming convention used in the playbook. You can change this if you so wish, you just need to edit the correct line in `repos.sh`. 
@@ -56,7 +56,7 @@ git remote add PhpProduction ssh://root@[production ip]:/var/repos/static.git
 Now that the connection has been created, we can push files up to the server as we please. This is done through the command: 
 
 ```shell
-git push PhpStaging [local branch]:[remote branch]
+git push StaticStaging [local branch]:[remote branch]
 ```
 
 The local branch in this line will be whatever branch you use in your workflow that contains the version of your files ready for release. 
@@ -69,3 +69,4 @@ Also note that we only pushed to the staging server, and not the production one.
 
 If you would like to check that your files transferred correctly without pulling it up in the browser, you can ssh into your server and look for the changes in `/var/www/html/static`. 
 
+You should now be able to navigate to `html.[your stage ip].xip.io` and be greeted by your `hello world` text.

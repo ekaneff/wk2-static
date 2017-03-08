@@ -1,4 +1,4 @@
-# Setup for Static File: Pipeline One (Multiple Pipelines Assignment)
+# Setup for Static File: Pipeline Two (Multiple Pipelines Assignment)
 #### By Emily Kaneff
 
 This repository is one of three that are part of a multiple pipeline deployment system made with Ansible. The set up and deployment process will be mostly the same in some aspects, but different enough that it is important for you to go through each one carefully and thoroughly as to not leave out any important pieces. 
@@ -74,8 +74,6 @@ ansible-playbook --private-key=~/.ssh/[your ssh key name] -i ./hosts static.yml
 This will begin executing the roles and installing the necessary dependancies to your server. 
 
 This playbook automates the installation and configuration of Nginx and it's server blocks. It also creates a folder for this project in `/var/www/html` along with a remote bare repository with a post-receive hook in place to handle the files we send from our local machines.
-
-You should now be able to go to `html.[your staging IP].xip.io` and be greeted with the Wordpress installation page. 
 
 >The IP for the production server is something we will have to implement later. For now, only include it in your `hosts` file.
 
